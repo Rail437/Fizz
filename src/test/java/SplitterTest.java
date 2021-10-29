@@ -24,9 +24,13 @@ public class SplitterTest {
 
     @Test
     public void readerTest(){
-        Assertions.assertDoesNotThrow( () -> {
-            splitter.read("lol");
-        });
+        Assertions.assertDoesNotThrow( () -> splitter.read("lol"));
+    }
+
+    @Test
+    public void formatTxt(){
+        String test = "3 5 7 ffdf";
+        assertThrows(NumberFormatException.class, () -> splitter.getStrings(test));
     }
 
 }
